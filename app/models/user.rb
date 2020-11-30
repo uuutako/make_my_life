@@ -2,7 +2,7 @@ class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
+         :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:facebook, :google_oauth2, :twitter]
   
     # with_options format: { with: /\A[a-zA-Z0-9]+\z/ } do  #半角英数字のみ
     #   validates :instagram 
@@ -12,15 +12,15 @@ class User < ApplicationRecord
   
     with_options presence: true do
       
-    validates :nick_name, uniqueness: { case_sensitive: false }
+    validates :nickname, uniqueness: { case_sensitive: false }
     validates :birthday
     validates :password, length: { minimum: 6 }
           PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze
           validates_format_of :password, with: PASSWORD_REGEX
       
      with_options format: { with: /\A[ぁ-んァ-ン一-龥]/ } do
-      validates :first_name
-      validates :last_name
+      validates :firstname
+      validates :lastname
      end
       
      with_options format: { with: /\A[ァ-ヶー－]+\z/ } do #全角カタカナのみ

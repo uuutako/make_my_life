@@ -1,6 +1,9 @@
 class Plan < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to    :category
+  belongs_to    :timezone
+  belongs_to    :season
+
   
   belongs_to    :user
   has_many      :comments

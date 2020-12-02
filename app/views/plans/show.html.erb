@@ -1,0 +1,13 @@
+<h1>投稿詳細ページ</h1>
+   <%= link_to "編集する", edit_plan_path(@plan.id)  %>
+   <%= link_to "削除する", plan_path(@plan.id), method: :delete %>
+
+<%= image_tag @plan.image.variant(resize: '500x500')%>
+<%= @plan.category.name%>
+<%= @plan.title%>
+<%= @plan.concept%>
+<%= @plan.item%>
+<%= @plan.process%>
+<%= @plan.time%>
+<%= @plan.place%>
+<%= @plan.season.name%>

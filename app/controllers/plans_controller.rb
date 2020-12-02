@@ -14,8 +14,21 @@ class PlansController < ApplicationController
     if @plan.save
       redirect_to root_path
     else
-      render :new     
+      render :new 
     end
+  end
+
+  def show
+    @plan = Plan.find(params[:id])  
+  end
+
+  def edit
+    @plan = Plan.find(params[:id])
+  end
+
+  def update
+    plan = Plan.find(params[:id])
+    plan.update(plan_params)
   end
 
 

@@ -63,3 +63,6 @@ gem 'omniauth-google-oauth2'
 gem "omniauth-rails_csrf_protection"
 gem 'omniauth'
 gem 'omniauth-twitter'
+gem 'mini_magick'
+gem 'image_processing', '~> 1.2'
+gem 'active_hash'

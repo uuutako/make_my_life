@@ -4,7 +4,8 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   root to:'plans#index'
-  resources :plans
   resources :users, only: :new  
-
+  resources :plans, only: [:new, :create] do
+    resources :comments, only: [:index, :create]
+  end
 end

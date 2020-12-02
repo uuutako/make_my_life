@@ -1,0 +1,30 @@
+<h1>新規投稿ぺージ</h1>
+    <%= form_with(model: @plan, local: true) do |form| %> 
+      <div>
+      画像
+      <%= form.file_field :image %>
+      タイトル
+      <%= form.text_field :title, placeholder: "タイトル" %>
+      コンセプト
+      <%= form.text_area  :concept, placeholder: "コンセプト" , rows: "10"%>
+      用意する物
+      <%= form.text_field :item, placeholder: "用意する物" %>
+      工程
+      <%= form.text_area  :process, placeholder: "決まりごと（工程）", rows: "10" %>
+      費用
+      <span>¥</span> <%= form.text_field :cost, placeholder: "費用"%>
+      所用時間
+      <%= form.text_field :time, placeholder: "所用時間" %>
+      場所
+      <%= form.radio_button :place, "室内" %>屋内 <%= form.radio_button :place, "屋外" %>屋外
+      時間帯
+      <%= form.collection_select(:timezone_id, Timezone.all, :id, :name, {prompt: "時間帯を選択してください"}) %>
+      季節
+      <%= form.collection_select(:season_id, Season.all, :id, :name,{prompt: "季節を選択してください"}) %>
+      カテゴリー
+      <%= form.collection_select(:category_id, Category.all, :id, :name,{prompt: "カテゴリーを選択してください"}) %>
+      </div>
+      
+      <%= form.submit "投稿する" %>
+<% end %>
+

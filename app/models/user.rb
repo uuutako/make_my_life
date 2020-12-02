@@ -32,6 +32,7 @@ class User < ApplicationRecord
 
   ### Association
   has_many  :sns_credentials
+  has_many  :plans
 
   def self.from_omniauth(auth)
     sns = SnsCredential.where(provider: auth.provider, uid: auth.uid).first_or_create

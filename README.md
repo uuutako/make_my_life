@@ -56,7 +56,13 @@ Things you may want to cover:
 | -------------------- | ----------- | ----------------- |
 | title                | string      | null: false       |
 | concept              | text        | null: false       |
-| category             | references  | foreign_key: true |
+| item                 | text        | null: false       |
+| cost                 |             | null: false       |
+| process              | text        | null: false       |
+| time                 | integer     | null: false       |
+| timezone_id          | integer     | null: false       |
+| place                | string      | null: false       |
+| category_id          | integer     | null: false       |
 | user                 | references  | foreign_key: true |  
 
 

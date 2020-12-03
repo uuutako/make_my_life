@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   }
   root to:'plans#index'
   resources :users, only: :new  
-  resources :plans, only: [:new, :create, :show, :edit, :update] do
+  resources :plans, only: [:new, :create, :show, :edit, :update, :destroy] do
     resources :comments, only: [:index, :create]
   end
 end

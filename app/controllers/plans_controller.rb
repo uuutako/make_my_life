@@ -31,6 +31,11 @@ class PlansController < ApplicationController
     plan.update(plan_params)
   end
 
+  def destroy
+    plan = Plan.find(params[:id])
+    plan.destroy
+  end
+
 
 end
 

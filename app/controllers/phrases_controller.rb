@@ -28,13 +28,12 @@ class PhrasesController < ApplicationController
     else 
         render :edit
     end
-  end  
+  end
 
-  # def destroy
-  #   phrase =Phrase.find(params[:id]
-  #   phrase.destroy
-  # end
-
+  def destroy
+    phrase = Phrase.find(params[:id])
+    phrase.destroy
+  end
 
 end
 

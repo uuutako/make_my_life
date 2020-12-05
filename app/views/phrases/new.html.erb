@@ -1,0 +1,7 @@
+<h1>フレーズの作成画面</h1>
+<%= form_with(model: @phrase, local: true) do |form| %>
+  <%= form.text_field :phrase, rows: "5"%>
+  <%= form.text_field :name %> 
+  <%= form.submit %>
+
+<% end %>

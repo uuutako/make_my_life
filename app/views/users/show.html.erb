@@ -1,0 +1,42 @@
+<h3>マイページ</h3>
+ <%= link_to "マイページを編集する", edit_user_path %>
+ <div><%= link_to "投稿する", new_plan_path %></div>
+
+<% if @user.image.attached? %>
+  <%= image_tag @user.image.variant(resize: '200x200')%>
+<% else %>
+  <%= image_tag "m_sample.jpg", :size => '200x200' %>
+<%end%>
+<%= @user.nickname%>
+<div>SNSアカウント</div>
+ツイッター
+<%= @user.twitter%>
+フェイスブック
+<%= @user.facebook%>
+インスタグラム
+<%= @user.instagram%>
+※ 投稿情報に表示されています
+<h3>フレーズ</h3>
+
+
+<h3>したいこと</h3>
+
+<h3>投稿検索</h3>
+
+<h3>いいね</h3>
+
+<h3>相談</h3>
+<%# 
+<%# <h3>投稿一覧</h3>
+ <div>
+   <% @plans.each do |plan| %>
+    <%# <%= link_to plan_path(plan) do %> %>
+     <!-- 投稿したユーザー名情報を出力する -->
+     <%# <%= plan.user.nickname %> %>
+     <!-- 投稿したメッセージ内容を記述する -->
+     <%# <%= plan.title %> %>
+       <!-- 投稿したプランの詳細を出力する -->
+     <%# <%= image_tag plan.image.variant(resize: '500x500') %> %>
+     <%# <%end%>
+    <%# <%end%> %>
+  </div>  

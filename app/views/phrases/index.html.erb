@@ -1,0 +1,9 @@
+<h1>言葉の棚、 一覧ページ</h1>
+  
+   <%#= link_to '削除', '/phrases/destroy' %>
+<div >
+  <% @phrase.each do |phrase| %>
+      <p><%= phrase.phrase %></p>
+      <p> <%= phrase.name %></p>
+  <% end %>
+</div>

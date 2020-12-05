@@ -25,29 +25,29 @@ Things you may want to cover:
 
 ## users テーブル
 
-| Column               | Type      | Options        |
-| -------------------- | --------- | -------------- |
-| nick_name            | string    | unique: true   |
-| email                | string    | unique: true   |
-| password             | string    | unique: true   |
-| first_name           | string    | null: false    |
-| last_name            | string    | null: false    |
-| first_name_kana      | string    | null: false    |
-| last_name_kana       | string    | null: false    |
-| birthday             | date      | null: false    |
-| sex                  | string    | null: false    |
-| age                  | integer   | null: false    |
-| instagram            | string    |                |
-| facebook             | string    |                |
-| twitter              | string    |                |
-
+| Column               | Type       | Options        |
+| -------------------- | ---------- | -------------- |
+| nick_name            | string     | unique: true   |
+| email                | string     | unique: true   |
+| password             | string     | unique: true   |
+| first_name           | string     | null: false    |
+| last_name            | string     | null: false    |
+| first_name_kana      | string     | null: false    |
+| last_name_kana       | string     | null: false    |
+| birthday             | date       | null: false    |
+| sex                  | string     | null: false    |
+| age                  | integer    | null: false    |
+| instagram            | string     |                |
+| facebook             | string     |                |
+| twitter              | string     |                |
+| phrase               | references | foreign_key: true |
 
 ### Association
 
-- has_many    :plans
-- has_many    :comments
+  has_many    :plans
+  has_many    :comments
   has_many    :likes
-  has_many    :words
+  has_many    :phrase
 
 
 ## plan テーブル
@@ -93,6 +93,17 @@ Things you may want to cover:
 | plan        | references | foreign_key: true |
 
 ### Association
-- belongs_to : users
+- belongs_to : user
 - belongs_to : plan
 
+
+### phrase テーブル
+
+| Column      | Type       | Options           |
+| ----------- | ---------- | ----------------- |
+| user        | references | foreign_key: true |
+| name        | text       |                   |
+| phrase      | text       | null: false       |
+
+### Association
+- belongs_to : user

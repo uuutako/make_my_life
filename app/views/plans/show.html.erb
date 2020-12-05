@@ -2,6 +2,7 @@
    <%= link_to "編集する", edit_plan_path(@plan.id)  %>
    <%= link_to "削除する", plan_path(@plan.id), method: :delete %>
 
+
 <%= image_tag @plan.image.variant(resize: '500x500')%>
 <%= @plan.category.name%>
 <%= @plan.title%>
@@ -11,3 +12,4 @@
 <%= @plan.time%>
 <%= @plan.place%>
 <%= @plan.season.name%>
+<%#= SNSのアカウント%>

@@ -10,9 +10,10 @@ class Plan < ApplicationRecord
   has_many      :likes
   has_one_attached :image
 
-  validates :concept, presence: true, unless: :was_attached?
+  
   validates :category_id, numericality: { other_than: 1 } 
-
+  validates :concept, presence: true, unless: :was_attached?
+  
   def was_attached?
     self.image.attached?
   end

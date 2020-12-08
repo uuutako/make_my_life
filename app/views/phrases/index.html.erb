@@ -1,10 +1,11 @@
 <h1>言葉の棚、 一覧ページ</h1>
-  
-  
 <div >
   <% @phrase.each do |phrase| %>
       <p><%= phrase.phrase %></p>
       <p> <%= phrase.name %></p>
-      <%= link_to "削除する", phrase_path(phrase.id), method: :delete %>
+      <%= link_to "削除", phrase_path(phrase.id), method: :delete %>
+      <%= link_to "編集", edit_phrase_path(phrase.id) %>
   <% end %>
+
+  <%= link_to "マイページ", user_path(current_user.id) %>
 </div>

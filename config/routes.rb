@@ -4,9 +4,12 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   root to:'plans#index'
+  get 'plans/search'
   resources :users,      only: [:show, :edit, :update] 
   resources :phrases
-  resources :plans,      only: [:new, :create, :show, :edit, :update, :destroy] do
+  resources :plans do
     resources :comments, only: [:index, :create]
   end
+
+  
 end

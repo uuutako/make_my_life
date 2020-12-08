@@ -16,18 +16,10 @@
     <%= form.file_field :image %>
   </div>  
 
-
     <div class="field">
     <%= form.label :nickname %><br />
     <%= form.text_field :nickname%>
   </div>
-
-      <div class="field">
-    <%= form.label :phrase %><br />
-    <%= form.collection_select(:phrase_id, Phrase.all, :id, :phrase, :prompt => "お気に入りの言葉を選択する"  ) %>
-  </div>
-  <%=link_to "一覧", phrases_path(@user) %>
-   <%= link_to '作成', new_phrase_path %>
 
     <div class="field">
     <%= form.label :twitter %><br />

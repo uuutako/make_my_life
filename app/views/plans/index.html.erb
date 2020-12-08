@@ -11,10 +11,12 @@
   <% end %>
   </div>
 </div> 
+
 <h3>記事一覧</h3>
+<%= render 'search_form' %>
  <%# <%= link_to "投稿する", new_plan_path  %> 
  <div>
-   <% @plans.each do |plan| %>
+   <% @plan.each do |plan| %>
     <%= link_to plan_path(plan) do %>
      <!-- 投稿したユーザー名情報を出力する -->
      <%= plan.user.nickname %>
@@ -22,7 +24,8 @@
      <%= plan.title %>
        <!-- 投稿したプランの詳細を出力する -->
      <%= image_tag plan.image.variant(resize: '500x500') %>
-     <%end%>
     <%end%>
+  <%end%>
   </div> 
+
 </div>

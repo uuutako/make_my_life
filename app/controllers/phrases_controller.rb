@@ -11,7 +11,7 @@ class PhrasesController < ApplicationController
   def create
     @phrase = Phrase.new(phrase_params)
     if @phrase.save
-      redirect_to(user_url(current_user.id)) 
+      redirect_to (user_path(current_user.id))
     else
       render :new 
     end
@@ -22,9 +22,9 @@ class PhrasesController < ApplicationController
   end
 
   def update
-    @phrase =Phrase.find(params[:id])
-    if @phrase.update(user_params)
-        redirect_to 
+    phrase =Phrase.find(params[:id])
+    if phrase.update(phrase_params)
+        redirect_to phrases_path
     else 
         render :edit
     end
@@ -33,6 +33,8 @@ class PhrasesController < ApplicationController
   def destroy
     phrase = Phrase.find(params[:id])
     phrase.destroy
+    redirect_to(phrases_path(current_user.id)) 
+
   end
 
 end

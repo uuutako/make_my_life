@@ -1,0 +1,6 @@
+<h1>作成ページ</h1>
+<%= form_with(model: @phrase, local: true) do |form| %>
+  <%= form.text_field :phrase, rows: "5"%>
+  <%= form.text_field :name %> 
+  <%= form.submit %>
+<% end %>

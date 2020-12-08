@@ -34,8 +34,8 @@ ActiveRecord::Schema.define(version: 2020_12_04_040132) do
   end
 
   create_table "phrases", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.text "phrase", null: false
-    t.string "name"
+    t.string "phrase", default: "black", null: false
+    t.string "name", default: "nanashi"
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

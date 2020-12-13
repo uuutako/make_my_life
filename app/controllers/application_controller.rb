@@ -7,10 +7,6 @@ class ApplicationController < ActionController::Base
     user_path(resource)
   end
 
-
-
-
-
   private
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, 

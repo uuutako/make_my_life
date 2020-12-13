@@ -1,13 +1,14 @@
 class PlansController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show] 
   before_action :set_plan, only: [:show, :edit, :update, :destroy]
 
   def index
-    @plan = Plan.order("created_at DESC")
+    @plans = Plan.order("created_at DESC")
+    @plan = Plan.all
     @user = User.includes(:user)
 
     @q = Plan.ransack(params[:q])
     @plans = @q.result(distinct: true)
-
     @categories = Category.all
     @seasons = Season.all
     @timezones = Timezone.all
@@ -45,13 +46,9 @@ class PlansController < ApplicationController
   def destroy
     plan.destroy
   end
-
-
-
 end
 
 private
-
 def set_plan
   @plan = Plan.find(params[:id])
 end

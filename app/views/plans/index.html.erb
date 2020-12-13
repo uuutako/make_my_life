@@ -7,25 +7,28 @@
     <div><%= link_to "投稿する", new_plan_path %></div>
   <%else%>
     <%= link_to "ログイン", new_user_session_path %> 
-    <%= link_to "新規登録", new_user_registration_path %>
+    <%= link_to "新規登録", new_user_registration_path %> 
   <% end %>
   </div>
 </div> 
 
 <h3>記事一覧</h3>
 <%= render 'search_form' %>
- <%# <%= link_to "投稿する", new_plan_path  %> 
- <div>
-   <% @plan.each do |plan| %>
+<div>
+  <% @plan.each do |plan| %>
     <%= link_to plan_path(plan) do %>
-     <!-- 投稿したユーザー名情報を出力する -->
-     <%= plan.user.nickname %>
-     <!-- 投稿したメッセージ内容を記述する -->
-     <%= plan.title %>
-       <!-- 投稿したプランの詳細を出力する -->
-     <%= image_tag plan.image.variant(resize: '500x500') %>
-    <%end%>
-  <%end%>
-  </div> 
-
+      <%= plan.user.nickname %>
+      <%= plan.title %>
+      <%= image_tag plan.image.variant(resize: '500x500') %>
+      <%end%> 
+      <% if user_signed_in? %>
+         <% if plan.bookmarked_by?(current_user)%>
+         <%= button_to("解除", "/plans/#{plan.id}/bookmarks", method: :delete) %>
+           <%# <%= link_to "ブックマークを外す", plan_bookmarks_path(plan.id), method: :delete %> %>
+         <% else %>
+         <%= button_to("登録", "/plans/#{plan.id}/bookmarks", method: :post) %>
+           <%# <%= link_to "ブックマーク", plan_bookmarks_path(plan.id)%> %>
+         <% end %>
+      <% end %>
+  <%end%> 
 </div>

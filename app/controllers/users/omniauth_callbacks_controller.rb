@@ -10,8 +10,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def twitter
     authorization
-   end
-end  
+  end
+
 
 private
   
@@ -26,6 +26,6 @@ private
       render template: 'devise/registrations/new'
      end
   end
-
+end
 
 

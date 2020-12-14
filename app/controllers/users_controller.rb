@@ -7,7 +7,6 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @phrases = Phrase.all
-
   end
 
   def edit
@@ -28,7 +27,4 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:email,:nickname, :image, :twitter, :facebook, :instagram,:phrase_id)
   end
-
- 
-
 end

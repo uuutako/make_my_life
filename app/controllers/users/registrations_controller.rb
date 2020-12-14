@@ -36,8 +36,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     devise_parameter_sanitizer.permit(:account_update, keys: [:nickname, :email,:password,:twitter, :facebook, :instagram])
   end
 
-
-
   # DELETE /resource
   # def destroy
   #   super
